@@ -13,10 +13,14 @@ return {
         "mfussenegger/nvim-lint",
         optional = true,
         opts = {
+            events = { "BufWritePost", "BufReadPost" },
             linters_by_ft = {
-                php = { "phpstan" },
+                php = { "myphpstan" },
             },
         },
+        init = function()
+            require("lint").linters.myphpstan = require("core.lint.linters.myphpstan").generate()
+        end,
     },
     {
         "stevearc/conform.nvim",

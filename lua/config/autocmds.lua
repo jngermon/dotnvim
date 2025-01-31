@@ -6,3 +6,11 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+vim.api.nvim_create_autocmd({ "DirChanged", "VimEnter" }, {
+    callback = function()
+        vim.defer_fn(function()
+            require("lazy.core.loader").reload("nvim-lint")
+        end, 200)
+    end,
+})
