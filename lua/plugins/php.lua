@@ -1,5 +1,19 @@
 return {
     {
+        "neovim/nvim-lspconfig",
+        init = function()
+            require("lspconfig").intelephense.setup({
+                root_dir = function(path, buf)
+                    local root = require("lspconfig.util").root_pattern("composer.json", ".git")(path)
+                    if root == nil then
+                        return path:match("(.*[/\\])")
+                    end
+                    return root
+                end,
+            })
+        end,
+    },
+    {
         "williamboman/mason.nvim",
         opts = {
             ensure_installed = {
