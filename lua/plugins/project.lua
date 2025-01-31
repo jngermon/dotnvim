@@ -11,7 +11,6 @@ return {
                 opts = {
                     winopts = {},
                     defaults = {
-                        prompt = "Coucou>",
                         path_shorten = 1,
                     },
                     fzf_opts = {
@@ -19,6 +18,7 @@ return {
                     },
                 },
             },
+            dashboard_mode = true,
         },
         init = function()
             -- enable saving the state of plugins in the session
@@ -32,11 +32,7 @@ return {
 
                     vim.defer_fn(function()
                         require("neo-tree.command").execute({ dir = LazyVim.root(), action = "show" })
-                        require("noice").notify(
-                            "Current : " .. session_name,
-                            vim.log.levels.INFO,
-                            { title = "Project" }
-                        )
+                        vim.notify("Current : " .. session_name, vim.log.levels.INFO, { title = "Project" })
                     end, 200)
                 end,
             })
@@ -44,7 +40,7 @@ return {
         dependencies = {
             { "nvim-lua/plenary.nvim" },
             -- optional picker
-            { "nvim-telescope/telescope.nvim", tag = "0.1.4" },
+            --{ "nvim-telescope/telescope.nvim", tag = "0.1.4" },
             -- optional picker
             { "ibhagwan/fzf-lua" },
             { "Shatur/neovim-session-manager" },
