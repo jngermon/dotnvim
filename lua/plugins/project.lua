@@ -36,6 +36,14 @@ return {
                     end, 200)
                 end,
             })
+
+            local wk = require("which-key")
+            wk.add({
+                { "<leader>p", group = "project", icon = { icon = " ", color = "cyan" } }, -- group
+                { "<leader>ph", "<cmd>NeovimProjectHistory<cr>", desc = "Open Project history", icon = " " },
+                { "<leader>pd", "<cmd>NeovimProjectDiscover<cr>", desc = "Discover new Project", icon = " " },
+                { "<leader>ps", "<cmd>NeovimProjectLoadRecent<cr>", desc = "Load recent Project", icon = " " },
+            })
         end,
         dependencies = {
             { "nvim-lua/plenary.nvim" },
