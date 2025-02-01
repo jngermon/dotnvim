@@ -12,6 +12,9 @@ return {
                 end,
             })
         end,
+        dependencies = {
+            { "folke/neoconf.nvim" },
+        },
     },
     {
         "williamboman/mason.nvim",
