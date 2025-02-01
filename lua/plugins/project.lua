@@ -7,7 +7,7 @@ return {
                 "~/.config/*",
             },
             picker = {
-                type = "fzf-lua", --"telescope", -- or "fzf-lua"
+                type = "telescope", --"telescope", -- or "fzf-lua"
                 opts = {
                     winopts = {},
                     defaults = {
@@ -48,9 +48,9 @@ return {
         dependencies = {
             { "nvim-lua/plenary.nvim" },
             -- optional picker
-            --{ "nvim-telescope/telescope.nvim", tag = "0.1.4" },
+            { "nvim-telescope/telescope.nvim" }, --, tag = "0.1.4" },
             -- optional picker
-            { "ibhagwan/fzf-lua" },
+            --{ "ibhagwan/fzf-lua" },
             { "Shatur/neovim-session-manager" },
         },
         lazy = false,

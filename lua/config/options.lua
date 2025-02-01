@@ -7,6 +7,8 @@ vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a T
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 
+vim.g.lazyvim_picker = "telescope"
+
 vim.g.lazyvim_php_lsp = "intelephense"
 
 vim.g.lazyvim_mini_snippets_in_completion = true
