@@ -34,10 +34,10 @@ return {
             linters_by_ft = {
                 php = { "myphpstan" },
             },
+            linters = {
+                myphpstan = require("core.lint.linters.myphpstan"),
+            },
         },
-        init = function()
-            require("lint").linters.myphpstan = require("core.lint.linters.myphpstan").generate()
-        end,
     },
     {
         "stevearc/conform.nvim",

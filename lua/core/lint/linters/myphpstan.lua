@@ -1,6 +1,4 @@
-local P = {}
-
-function P.generate()
+return function()
     local vendor = "vendor/bin/"
     local bin = "phpstan"
     local neoconf = require("neoconf")
@@ -91,5 +89,3 @@ function P.generate()
     end
     return linter
 end
-
-return P
