@@ -15,4 +15,14 @@ function util.dump(o)
     end
 end
 
+function util.cleanTable(t)
+    local cleanTable = {}
+    for _, v in pairs(t) do
+        if v ~= nil then
+            table.insert(cleanTable, v)
+        end
+    end
+    return cleanTable
+end
+
 return util

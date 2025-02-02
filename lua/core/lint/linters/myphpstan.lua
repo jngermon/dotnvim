@@ -1,4 +1,5 @@
 return function()
+    local util = require("core.util")
     local vendor = "vendor/bin/"
     local bin = "phpstan"
     local neoconf = require("neoconf")
@@ -27,9 +28,9 @@ return function()
 
     if conf.docker and conf.docker.container then
         linter.cmd = "docker"
-        linter.args = {
+        linter.args = util.cleanTable({
             "exec",
-            conf.docker.root and ("--workdir=" .. conf.docker.root) or "",
+            conf.docker.root and ("--workdir=" .. conf.docker.root) or nil,
             conf.docker.container,
             vendor .. bin,
             "analyze",
@@ -43,20 +44,20 @@ return function()
 
                 return bufname
             end,
-        }
+        })
         linter.stdin = false
         linter.append_fname = false
     else
         local local_bin = vim.fn.fnamemodify((conf.root or "") .. vendor .. bin, ":p")
         linter.cmd = vim.uv.fs_stat(local_bin) and local_bin or bin
-        linter.args = {
+        linter.args = util.cleanTable({
             "analyze",
             (conf.root or conf.phpstan)
                     and ("--configuration=" .. conf.root .. (conf.phpstan ~= "" or "phpstan.dist.neon"))
                 or nil,
             "--error-format=json",
             "--no-progress",
-        }
+        })
         linter.stdin = false
         linter.append_fname = true
     end
