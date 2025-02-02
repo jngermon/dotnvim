@@ -29,11 +29,15 @@ return {
                 callback = function()
                     local session = require("session_manager.utils")
                     local session_name = session.active_session_filename:gsub("^.*__", "")
+                    local path = require("neovim-project.utils.path")
 
                     vim.defer_fn(function()
-                        require("neo-tree.command").execute({ dir = LazyVim.root(), action = "show" })
+                        require("neo-tree.command").execute({
+                            dir = vim.fn.fnamemodify(path.dir_pretty, ":p"),
+                            action = "show",
+                        })
                         vim.notify("Current : " .. session_name, vim.log.levels.INFO, { title = "Project" })
-                    end, 200)
+                    end, 40)
                 end,
             })
 
