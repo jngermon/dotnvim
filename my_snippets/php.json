@@ -1,0 +1,63 @@
+{
+    "namespace": {
+        "prefix": "ns",
+        "body": [
+            "namespace ${TM_FILEPATH/(?:^.*\\/src\\/([^\\/]+)\\/)|(?:([^\\/]+)\\/)|(?:([^\\/]+$))/${1:+App\\\\}$1${2:+\\\\}$2/g};",
+            "$0"
+        ]
+    },
+    "class": {
+        "prefix": "class",
+        "body": [
+            "namespace ${TM_FILEPATH/(?:^.*\\/src\\/([^\\/]+)\\/)|(?:([^\\/]+)\\/)|(?:([^\\/]+$))/${1:+App\\\\}$1${2:+\\\\}$2/g};",
+            "",
+            "class ${TM_FILENAME_BASE}${1/(\\w+)/${1:+ extends }/}${1:Parent}${2/(.+)/${1:+ implements }/}${2}",
+            "{",
+            "\t$0",
+            "}"
+        ]
+    },
+    "interface": {
+        "prefix": "interface",
+        "body": [
+            "namespace ${TM_FILEPATH/(?:^.*\\/src\\/([^\\/]+)\\/)|(?:([^\\/]+)\\/)|(?:([^\\/]+$))/${1:+App\\\\}$1${2:+\\\\}$2/g};",
+            "",
+            "interface ${TM_FILENAME_BASE}${1/(\\w+)/${1:+ extends }/}${1:Parent}",
+            "{",
+            "\t$0",
+            "}"
+        ]
+    },
+    "construct": {
+        "prefix": "cons",
+        "body": [
+            "public function __construct(",
+            "\t$1",
+            "): ${2:void} {",
+            "\t$0",
+            "}"
+        ]
+    },
+    "getter": {
+        "prefix": "get",
+        "body": [
+            "public function get${1/(.*)/${1:/capitalize}/}(): ${2:type}",
+            "{",
+            "\treturn \\$this->${1:name};",
+            "}",
+            "$0"
+        ]
+    },
+    "setter": {
+        "prefix": "set",
+        "body": [
+            "public function set${1/(.*)/${1:/capitalize}/}(${2:type} \\$$1): self",
+            "{",
+            "\t\\$this->${1:name} = \\$$1;",
+            "",
+            "\treturn \\$this;",
+            "}",
+            "$0"
+        ]
+    }
+}
