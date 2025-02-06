@@ -9,6 +9,7 @@ return function()
         docker = {
             root = false,
             container = false,
+            user = false,
         },
     })
 
@@ -31,6 +32,7 @@ return function()
         linter.args = util.cleanTable({
             "exec",
             conf.docker.root and ("--workdir=" .. conf.docker.root) or nil,
+            conf.docker.user and ("--user=" .. conf.docker.user) or nil,
             conf.docker.container,
             vendor .. bin,
             "analyze",
