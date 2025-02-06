@@ -38,6 +38,12 @@
             "}"
         ]
     },
+    "variable-setter": {
+        "prefix": "t-",
+        "body": [
+            "\\$this->${1:attribute} = \\$$1;$0"
+        ]
+    },
     "getter": {
         "prefix": "get",
         "body": [
