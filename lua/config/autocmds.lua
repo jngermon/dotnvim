@@ -10,7 +10,8 @@
 vim.api.nvim_create_autocmd({ "DirChanged", "VimEnter" }, {
     callback = function()
         vim.defer_fn(function()
-            require("lazy.core.loader").reload("nvim-lint")
+            vim.notify("LspRestart...")
+            vim.cmd("LspRestart")
         end, 200)
     end,
 })
