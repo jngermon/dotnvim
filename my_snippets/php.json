@@ -33,7 +33,7 @@
         "body": [
             "public function __construct(",
             "\t$1",
-            "): ${2:void} {",
+            ") {",
             "\t$0",
             "}"
         ]
