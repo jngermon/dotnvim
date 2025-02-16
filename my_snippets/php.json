@@ -65,5 +65,22 @@
             "}",
             "$0"
         ]
+    },
+    "getter-setter": {
+        "prefix": "gs",
+        "body": [
+            "public function get${1/(.*)/${1:/capitalize}/}(): ${2:type}",
+            "{",
+            "\treturn \\$this->${1:name};",
+            "}",
+            "",
+            "public function set${1/(.*)/${1:/capitalize}/}(${2} \\$$1): self",
+            "{",
+            "\t\\$this->${1} = \\$$1;",
+            "",
+            "\treturn \\$this;",
+            "}",
+            "$0"
+        ]
     }
 }
