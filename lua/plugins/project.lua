@@ -37,7 +37,7 @@ return {
                             action = "show",
                         })
                         vim.notify("Current : " .. session_name, vim.log.levels.INFO, { title = "Project" })
-                    end, 40)
+                    end, 90)
                 end,
             })
 
