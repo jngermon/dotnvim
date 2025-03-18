@@ -28,6 +28,17 @@
             "}"
         ]
     },
+    "enum": {
+        "prefix": "enum",
+        "body": [
+            "namespace ${TM_FILEPATH/(?:^.*\\/(?:src|tests)\\/([^\\/]+)\\/)|(?:([^\\/]+)\\/)|(?:([^\\/]+$))/${1:+App\\\\}$1${2:+\\\\}$2/g};",
+            "",
+            "enum ${TM_FILENAME_BASE}: string",
+            "{",
+            "\t$0",
+            "}"
+        ]
+    },
     "construct": {
         "prefix": "cons",
         "body": [
