@@ -42,12 +42,18 @@ return function()
                 return "docker"
             end
 
-            local cmd = findCmd(config, ctx)
-            if conf.phpcsfixer.ignore_env then
-                cmd = "PHP_CS_FIXER_IGNORE_ENV=1 " .. cmd
+            return findCmd(config, ctx)
+        end,
+        env = function(config, ctx)
+            if conf.docker and conf.docker.container then
+                return {}
             end
 
-            return cmd
+            if conf.phpcsfixer.ignore_env then
+                return { PHP_CS_FIXER_IGNORE_ENV = 1 }
+            end
+
+            return {}
         end,
         args = function(config, ctx)
             if conf.docker and conf.docker.container then
@@ -63,6 +69,7 @@ return function()
                     pathReplaceForDocker(ctx.filename),
                 })
             end
+
             return { "fix", "$FILENAME" }
         end,
         stdin = false,
