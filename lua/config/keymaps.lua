@@ -4,4 +4,4 @@
 
 local map = LazyVim.safe_keymap_set
 
-map("n", "<leader>D", "<cmd>lua Snacks.dashboard.open()<cr>")
+map("n", "<leader>D", "<cmd>lua Snacks.dashboard.open()<cr>", { desc = "Dashboard" })
