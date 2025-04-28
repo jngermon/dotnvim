@@ -5,7 +5,7 @@ return function()
     local conf = neoconf.get("php", {
         root = "",
         phpcsfixer = {
-            ignore_env = false,
+            ignore_env = true,
             config = "",
         },
         docker = {
@@ -42,7 +42,12 @@ return function()
                 return "docker"
             end
 
-            return findCmd(config, ctx)
+            local cmd = findCmd(config, ctx)
+            if conf.phpcsfixer.ignore_env then
+                cmd = "PHP_CS_FIXER_IGNORE_ENV=1 " .. cmd
+            end
+
+            return cmd
         end,
         args = function(config, ctx)
             if conf.docker and conf.docker.container then
