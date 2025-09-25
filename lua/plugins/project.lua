@@ -5,6 +5,7 @@ return {
             projects = { -- define project roots
                 "~/srv/*/*",
                 "~/.config/*",
+                "~/.dotfiles",
             },
             picker = {
                 type = "telescope", --"telescope", -- or "fzf-lua"
