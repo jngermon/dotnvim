@@ -35,7 +35,7 @@ return {
                     {
                         pane = 2,
                         section = "terminal",
-                        cmd = "chafa ~/.dotfiles/files/images/blacksab-1.mirror.png  -c none --symbols braille --size 60x17 --stretch; sleep .1",
+                        cmd = "chafa ~/.dotfiles/files/images/blacksab-1.mirror.png  -c none --symbols braille --size 60x17 --stretch --format symbols; sleep .1",
                         height = 17,
                         padding = 1,
                     },
