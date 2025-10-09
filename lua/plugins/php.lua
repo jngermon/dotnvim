@@ -15,6 +15,12 @@ return {
         dependencies = {
             { "folke/neoconf.nvim" },
         },
+        opts = function()
+            local keys = require("lazyvim.plugins.lsp.keymaps").get()
+            -- disable a keymap
+            keys[#keys + 1] = { "<A-n>", false }
+            keys[#keys + 1] = { "<A-p>", false }
+        end,
     },
     {
         "mason-org/mason.nvim",
