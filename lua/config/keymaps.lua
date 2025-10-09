@@ -6,6 +6,8 @@ local map = LazyVim.safe_keymap_set
 
 map("n", "<leader>D", "<cmd>lua Snacks.dashboard.open()<cr>", { desc = "Dashboard" })
 
+map("n", "<C-u>", "<cmd>redo<cr>", { desc = "Redo", remap = true })
+
 -- For New Keyboard compatibility
 map("n", "<C-s>", "<C-w>h", { desc = "Go to Left Window", remap = true })
 map("n", "<C-r>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
