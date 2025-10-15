@@ -75,6 +75,8 @@ return {
                 mappings = {
                     ["l"] = "open",
                     ["h"] = "close_node",
+                    ["<right>"] = "open",
+                    ["<left>"] = "close_node",
                     ["<space>"] = "none",
                     ["Y"] = {
                         function(state)
