@@ -14,8 +14,10 @@ map("n", "<C-s>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
 map("n", "<C-r>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 map("n", "<C-n>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
-map("n", "<S-LEFT>", "<cmd>BufferLineMovePrev<cr>", { desc = "Go to Left Buffer", remap = true })
-map("n", "<S-RIGHT>", "<cmd>BufferLineMoveNext<cr>", { desc = "Go to Right Buffer", remap = true })
+map("n", "<S-LEFT>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Go to Left Buffer", remap = true })
+map("n", "<S-RIGHT>", "<cmd>BufferLineCycleNext<cr>", { desc = "Go to Right Buffer", remap = true })
+map("n", "<S-HOME>", "<cmd>BufferLineMovePrev<cr>", { desc = "Move Buffer left", remap = true })
+map("n", "<S-END>", "<cmd>BufferLineMoveNext<cr>", { desc = "Move Buffer right", remap = true })
 
 -- Move Lines
 map("n", "<A-s>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
