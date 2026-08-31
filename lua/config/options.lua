@@ -12,3 +12,5 @@ vim.g.lazyvim_picker = "telescope"
 vim.g.lazyvim_php_lsp = "intelephense"
 
 vim.g.lazyvim_mini_snippets_in_completion = true
+
+vim.o.foldlevelstart = 99
