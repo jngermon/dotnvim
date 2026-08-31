@@ -6,6 +6,7 @@ return {
                 "~/srv/*/*",
                 "~/.config/*",
                 "~/.dotfiles",
+                "~/.eff/*/*",
             },
             picker = {
                 type = "telescope", --"telescope", -- or "fzf-lua"
