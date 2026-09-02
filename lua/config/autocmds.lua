@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd({ "DirChanged", "VimEnter" }, {
     callback = function()
         vim.defer_fn(function()
             vim.notify("LspRestart...")
-            vim.cmd("LspRestart")
+            vim.cmd("lsp restart")
         end, 200)
     end,
 })
