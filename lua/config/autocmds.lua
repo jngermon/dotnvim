@@ -7,14 +7,14 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
-vim.api.nvim_create_autocmd({ "DirChanged", "VimEnter" }, {
-    callback = function()
-        vim.defer_fn(function()
-            vim.notify("LspRestart...")
-            vim.cmd("lsp restart")
-        end, 200)
-    end,
-})
+-- vim.api.nvim_create_autocmd({ "DirChanged", "VimEnter" }, {
+--     callback = function()
+--         vim.defer_fn(function()
+--             vim.notify("LspRestart...")
+--             vim.cmd("lsp restart")
+--         end, 200)
+--     end,
+-- })
 
 vim.api.nvim_create_autocmd("User", {
     pattern = "GitConflictDetected",
